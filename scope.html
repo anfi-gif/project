@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Scope - Tower Project Mind Map</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1c3a6e, #3c6eb4);
+            color: #333;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        h1 {
+            color: #1c3a6e;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .mind-map {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: 0 auto 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .description {
+            text-align: center;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        .back-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 8px 16px;
+            background-color: #3c6eb4;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        .back-button:hover {
+            background-color: #1c3a6e;
+            transform: translateY(-2px);
+        }
+        .comment-section {
+            margin-top: 40px;
+            border-top: 1px solid #ccc;
+            padding-top: 20px;
+            position: relative;
+        }
+        .comment-icon {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #fff;
+            padding: 0 10px;
+            color: #3c6eb4;
+            display: none;
+        }
+        .comment-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .comment-form button {
+            padding: 8px 16px;
+            background-color: #3c6eb4;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .comments-list {
+            margin-top: 20px;
+        }
+        .comment {
+            background-color: #f0f4f8;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-button">Back to Canvas</a>
+        <h1><i class="fas fa-project-diagram"></i> Tower Project Scope</h1>
+        <img src="../images/mind_map.png" alt="Tower Project Mind Map" class="mind-map">
+        <p class="description">
+            This mind map illustrates the comprehensive scope of the Tower Project, 
+            including core system components, key stakeholders, identified problems, 
+            proposed solutions, goals, and key performance indicators (KPIs).
+        </p>
+        
+        <div class="comment-section">
+            <div class="comment-icon" id="commentIcon">
+                <i class="fas fa-comments"></i>
+            </div>
+            <h2>Comments</h2>
+            <form class="comment-form" id="commentForm">
+                <textarea id="commentText" rows="4" placeholder="Enter your comment here"></textarea>
+                <button type="submit">Submit Comment</button>
+            </form>
+            <div class="comments-list" id="commentsList"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const commentForm = document.getElementById('commentForm');
+            const commentsList = document.getElementById('commentsList');
+            const commentIcon = document.getElementById('commentIcon');
+
+            // Load existing comments
+            loadComments();
+
+            commentForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const commentText = document.getElementById('commentText').value;
+                if (commentText.trim() !== '') {
+                    addComment(commentText);
+                    document.getElementById('commentText').value = '';
+                }
+            });
+
+            function addComment(text) {
+                const comment = {
+                    text: text,
+                    timestamp: new Date().toISOString()
+                };
+                let comments = JSON.parse(localStorage.getItem('scopeComments') || '[]');
+                comments.push(comment);
+                localStorage.setItem('scopeComments', JSON.stringify(comments));
+                displayComment(comment);
+                updateCommentIcon();
+            }
+
+            function loadComments() {
+                const comments = JSON.parse(localStorage.getItem('scopeComments') || '[]');
+                comments.forEach(displayComment);
+                updateCommentIcon();
+            }
+
+            function displayComment(comment) {
+                const commentElement = document.createElement('div');
+                commentElement.classList.add('comment');
+                commentElement.textContent = `${new Date(comment.timestamp).toLocaleString()}: ${comment.text}`;
+                commentsList.prepend(commentElement);
+            }
+
+            function updateCommentIcon() {
+                const comments = JSON.parse(localStorage.getItem('scopeComments') || '[]');
+                if (comments.length > 0) {
+                    localStorage.setItem('scopeHasComments', 'true');
+                } else {
+                    localStorage.setItem('scopeHasComments', 'false');
+                }
+            }
+
+            // Call updateCommentIcon initially and after adding comments
+            updateCommentIcon();
+        });
+    </script>
+</body>
+</html>

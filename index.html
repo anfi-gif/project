@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tower Project Executive Summary</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1c3a6e, #3c6eb4);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            max-width: 1200px;
+            width: 95%;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        h1 {
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0 0 15px 0;
+            text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+            letter-spacing: 1px;
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            box-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
+        }
+        .input-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            padding: 8px 12px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 6px;
+            font-size: 12px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
+        }
+        input[type="text"]:focus {
+            outline: none;
+            box-shadow: 0 4px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px rgba(255, 255, 255, 0.5);
+        }
+        main {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 20px;
+        }
+        .cell {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            height: 140px;
+            display: flex;
+            flex-direction: column;
+        }
+        .cell:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 0 rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            font-size: 14px;
+            margin: 0 0 10px 0;
+            display: flex;
+            align-items: center;
+        }
+        h2 i {
+            margin-right: 8px;
+            font-size: 16px;
+        }
+        h2 a {
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        h2 a:hover {
+            text-decoration: underline;
+            opacity: 0.8;
+        }
+        textarea {
+            width: 100%;
+            height: 100%;
+            padding: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 6px;
+            resize: none;
+            font-size: 11px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+        textarea:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 11px;
+        }
+        ::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+        .comment-icon {
+            margin-left: 5px;
+            color: #1c3a6e; /* Dark blue color */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Tower Project Executive Summary</h1>
+            <div class="input-container">
+                <input type="text" id="project-name" value="Lease-to-Surface Rights Conversion Project" placeholder="Project name">
+                <input type="text" id="project-owner" value="John Doe (Tower Company Director)" placeholder="Project owner">
+            </div>
+        </header>
+        <main>
+            <div class="cell">
+                <h2><i class="fas fa-bullseye"></i> <a href="#" onclick="openDetailPage('Purpose')">Purpose</a></h2>
+                <textarea placeholder="What is the intent of this project?">To streamline and optimize the conversion of lease agreements into surface rights contracts, reducing time delays and legal bottlenecks.</textarea>
+            </div>
+            <div class="cell">
+                <h2>
+                    <i class="fas fa-project-diagram"></i>
+                    <a href="#" onclick="openDetailPage('scope')">Scope</a>
+                    <span id="scopeCommentIcon" class="comment-icon" style="display: none;">
+                        <i class="fas fa-comments"></i>
+                    </span>
+                </h2>
+                <textarea placeholder="What's the project scope?">Comprehensive Tower Project scope including system components, stakeholders, and objectives.</textarea>
+            </div>
+            <div class="cell">
+                <h2><i class="fas fa-check-circle"></i> <a href="#" onclick="openDetailPage('Success Criteria')">Success Criteria</a></h2>
+                <textarea placeholder="What are the success criteria?">Reduced cycle time by 25%, 80% conversions within 6 months, improved stakeholder satisfaction.</textarea>
+            </div>
+            <div class="cell">
+                <h2>
+                    <i class="fas fa-flag"></i>
+                    <a href="#" onclick="openDetailPage('milestones')">Milestones</a>
+                    <span id="milestoneCommentIcon" class="comment-icon" style="display: none;">
+                        <i class="fas fa-comments"></i>
+                    </span>
+                </h2>
+                <textarea placeholder="What are the key milestones?">Project kickoff, requirements gathering, system design, development, testing, go-live.</textarea>
+            </div>
+            <div class="cell">
+                <h2><i class="fas fa-star"></i> <a href="#" onclick="openDetailPage('Outcome')">Outcome</a></h2>
+                <textarea placeholder="What is the end result?">Reduced contract cycle time, legal compliance, enhanced process automation for future contracts.</textarea>
+            </div>
+            <div class="cell">
+                <h2><i class="fas fa-tasks"></i> <a href="#" onclick="openDetailPage('Actions')">Actions</a></h2>
+                <textarea placeholder="What activities need to be executed?">Process mapping, platform development, negotiation process coordination, documentation collection.</textarea>
+            </div>
+            <div class="cell">
+                <h2><i class="fas fa-users"></i> <a href="#" onclick="openDetailPage('Team')">Team</a></h2>
+                <textarea placeholder="Who are the team members?">Project Manager, Business Analyst, Legal Advisor, Surveyors, IT Developers, Notary Liaisons.</textarea>
+            </div>
+            <div class="cell">
+                <h2><i class="fas fa-handshake"></i> <a href="#" onclick="openDetailPage('Stakeholders')">Stakeholders</a></h2>
+                <textarea placeholder="Who are the stakeholders?">Locators, Notaries, Surveyors, Regulatory agencies.</textarea>
+            </div>
+            <div class="cell">
+                <h2><i class="fas fa-user-friends"></i> <a href="#" onclick="openDetailPage('Users')">Users</a></h2>
+                <textarea placeholder="Who will benefit?">Tower Company, Locators, Agencies.</textarea>
+            </div>
+            <div class="cell">
+                <h2><i class="fas fa-cubes"></i> <a href="#" onclick="openDetailPage('Resources')">Resources</a></h2>
+                <textarea placeholder="What resources are required?">Budget: $250,000, 12-month duration, Technology: Monitoring platform, document management tools.</textarea>
+            </div>
+            <div class="cell">
+                <h2><i class="fas fa-ban"></i> <a href="#" onclick="openDetailPage('Constraints')">Constraints</a></h2>
+                <textarea placeholder="What are the limitations?">Legal delays, document availability, stakeholder negotiations.</textarea>
+            </div>
+            <div class="cell">
+                <h2><i class="fas fa-exclamation-triangle"></i> <a href="#" onclick="openDetailPage('Risks')">Risks</a></h2>
+                <textarea placeholder="What could go wrong?">Contract conversion delays, budget overruns, stakeholder resistance.</textarea>
+            </div>
+        </main>
+        <footer>
+            <p>© 2023 Tower Project | Confidential Executive Summary</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+    <script>
+    function openDetailPage(section) {
+        console.log(section + ' link clicked');
+        const currentUrl = new URL(window.location.href);
+        const projectParam = currentUrl.searchParams.get('project');
+        const ownerParam = currentUrl.searchParams.get('owner');
+        
+        let newUrl = 'detail_pages/' + section.toLowerCase() + '.html?section=' + section;
+        if (projectParam) newUrl += '&project=' + encodeURIComponent(projectParam);
+        if (ownerParam) newUrl += '&owner=' + encodeURIComponent(ownerParam);
+        
+        console.log('Navigating to:', newUrl);
+        window.location.href = newUrl;
+    }
+
+    function checkForComments() {
+        const scopeHasComments = localStorage.getItem('scopeHasComments') === 'true';
+        const milestoneHasComments = localStorage.getItem('milestoneHasComments') === 'true';
+        
+        document.getElementById('scopeCommentIcon').style.display = scopeHasComments ? 'inline' : 'none';
+        document.getElementById('milestoneCommentIcon').style.display = milestoneHasComments ? 'inline' : 'none';
+    }
+
+    // Check for comments when the page loads
+    document.addEventListener('DOMContentLoaded', checkForComments);
+
+    // Check for comments when the window gains focus (in case comments were added in another tab)
+    window.addEventListener('focus', checkForComments);
+    </script>
+</body>
+</html>

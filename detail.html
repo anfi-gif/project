@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base href="/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tower Project - Details</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1c3a6e, #3c6eb4);
+            color: #333;
+            min-height: 100vh;
+        }
+        .detail-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            font-size: 28px;
+            color: #1c3a6e;
+            letter-spacing: 1px;
+        }
+        h1 i {
+            margin-right: 15px;
+            font-size: 32px;
+            color: #3c6eb4;
+        }
+        .flow-chart {
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+            margin-bottom: 30px;
+        }
+        .flow-item {
+            background-color: #f0f4f8;
+            border-radius: 10px;
+            padding: 15px 10px;
+            flex: 1;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 0 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .flow-item:hover {
+            background-color: #e0e8f0;
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        .flow-item.active {
+            background-color: #3c6eb4;
+            color: #fff;
+        }
+        .flow-item h2 {
+            font-size: 14px;
+            margin: 0;
+            color: #1c3a6e;
+            transition: color 0.3s ease;
+        }
+        .flow-item:hover h2 {
+            color: #3c6eb4;
+        }
+        .flow-item.active h2 {
+            color: #fff;
+        }
+        .content-box {
+            background-color: #f0f4f8;
+            border-radius: 10px;
+            padding: 25px;
+            margin-top: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .content-box h2 {
+            color: #1c3a6e;
+            margin-top: 0;
+            font-size: 24px;
+            border-bottom: 2px solid #3c6eb4;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .content-box ul {
+            margin: 0;
+            padding-left: 20px;
+            list-style-type: none;
+        }
+        .content-box li {
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        .content-box li > span {
+            cursor: pointer;
+            color: #3c6eb4;
+            font-weight: 600;
+        }
+        .content-box li > span:hover {
+            text-decoration: underline;
+        }
+        .content-box li > span::before {
+            content: '▶ ';
+            font-size: 0.8em;
+            color: #3c6eb4;
+            margin-right: 5px;
+        }
+        .content-box li.expanded > span::before {
+            content: '▼ ';
+        }
+        .content-box ul ul {
+            display: none;
+            margin-top: 10px;
+            margin-left: 20px;
+            padding-left: 15px;
+            border-left: 2px solid #3c6eb4;
+        }
+        .back-button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 24px;
+            background-color: #3c6eb4;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        .back-button:hover {
+            background-color: #1c3a6e;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="detail-container">
+        <h1>Tower Project Details</h1>
+        <div class="section-grid">
+            <div class="section-item" onclick="location.href='detail_pages/purpose.html'">
+                <i class="fas fa-bullseye"></i>
+                <h2>Purpose</h2>
+            </div>
+            <div class="section-item" onclick="location.href='detail_pages/scope.html'">
+                <i class="fas fa-search"></i>
+                <h2>Scope</h2>
+            </div>
+            <div class="section-item" onclick="location.href='detail_pages/success_criteria.html'">
+                <i class="fas fa-check-circle"></i>
+                <h2>Success Criteria</h2>
+            </div>
+            <div class="section-item" onclick="location.href='detail_pages/milestones.html'">
+                <i class="fas fa-flag"></i>
+                <h2>Milestones</h2>
+            </div>
+            <div class="section-item" onclick="location.href='detail_pages/outcome.html'">
+                <i class="fas fa-star"></i>
+                <h2>Outcome</h2>
+            </div>
+            <div class="section-item" id="actions-link">
+                <i class="fas fa-tasks"></i>
+                <h2>Actions</h2>
+            </div>
+            <div class="section-item" onclick="location.href='detail_pages/team.html'">
+                <i class="fas fa-users"></i>
+                <h2>Team</h2>
+            </div>
+            <div class="section-item" onclick="location.href='detail_pages/stakeholders.html'">
+                <i class="fas fa-handshake"></i>
+                <h2>Stakeholders</h2>
+            </div>
+            <div class="section-item" onclick="location.href='detail_pages/users.html'">
+                <i class="fas fa-user-friends"></i>
+                <h2>Users</h2>
+            </div>
+            <div class="section-item" onclick="location.href='detail_pages/resources.html'">
+                <i class="fas fa-cubes"></i>
+                <h2>Resources</h2>
+            </div>
+            <div class="section-item" onclick="location.href='detail_pages/constraints.html'">
+                <i class="fas fa-ban"></i>
+                <h2>Constraints</h2>
+            </div>
+            <div class="section-item" id="risks-link">
+                <i class="fas fa-exclamation-triangle"></i>
+                <h2>Risks</h2>
+            </div>
+        </div>
+        <a href="project_canvas.html" class="back-button">Back to Executive Summary</a>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.section-item').forEach(item => {
+                item.addEventListener('click', function(event) {
+                    event.preventDefault(); // Prevent default link behavior
+                    const page = this.getAttribute('data-page');
+                    const currentUrl = new URL(window.location.href);
+                    const projectParam = currentUrl.searchParams.get('project');
+                    const ownerParam = currentUrl.searchParams.get('owner');
+                    
+                    let newUrl = `detail_pages/${page}.html?section=${page}`;
+                    if (projectParam) newUrl += `&project=${encodeURIComponent(projectParam)}`;
+                    if (ownerParam) newUrl += `&owner=${encodeURIComponent(ownerParam)}`;
+                    
+                    window.location.href = newUrl;
+                });
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const actionsLink = document.getElementById('actions-link');
+            if (actionsLink) {
+                actionsLink.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    console.log('Actions link clicked');
+                    const currentUrl = new URL(window.location.href);
+                    const projectParam = currentUrl.searchParams.get('project');
+                    const ownerParam = currentUrl.searchParams.get('owner');
+                    
+                    let newUrl = 'detail_pages/actions.html?section=Actions';
+                    if (projectParam) newUrl += `&project=${encodeURIComponent(projectParam)}`;
+                    if (ownerParam) newUrl += `&owner=${encodeURIComponent(ownerParam)}`;
+                    
+                    console.log('Navigating to:', newUrl);
+                    window.location.href = newUrl;
+                });
+            } else {
+                console.error('Actions link not found');
+            }
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const milestoneLink = document.getElementById('milestone-link');
+            if (milestoneLink) {
+                milestoneLink.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    console.log('Milestone link clicked');
+                    const currentUrl = new URL(window.location.href);
+                    const projectParam = currentUrl.searchParams.get('project');
+                    const ownerParam = currentUrl.searchParams.get('owner');
+                    
+                    let newUrl = 'detail_pages/milestone.html?section=Milestones';
+                    if (projectParam) newUrl += `&project=${encodeURIComponent(projectParam)}`;
+                    if (ownerParam) newUrl += `&owner=${encodeURIComponent(ownerParam)}`;
+                    
+                    console.log('Navigating to:', newUrl);
+                    window.location.href = newUrl;
+                });
+            } else {
+                console.error('Milestone link not found');
+            }
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const risksLink = document.getElementById('risks-link');
+            if (risksLink) {
+                risksLink.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    console.log('Risks link clicked');
+                    const currentUrl = new URL(window.location.href);
+                    const projectParam = currentUrl.searchParams.get('project');
+                    const ownerParam = currentUrl.searchParams.get('owner');
+                    
+                    let newUrl = 'detail_pages/risks.html?section=Risks';
+                    if (projectParam) newUrl += `&project=${encodeURIComponent(projectParam)}`;
+                    if (ownerParam) newUrl += `&owner=${encodeURIComponent(ownerParam)}`;
+                    
+                    console.log('Navigating to:', newUrl);
+                    window.location.href = newUrl;
+                });
+            } else {
+                console.error('Risks link not found');
+            }
+        });
+    </script>
+</body>
+</html>

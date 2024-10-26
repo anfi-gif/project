@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Milestones</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1c3a6e, #3c6eb4);
+            color: #333;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        h1 {
+            color: #1c3a6e;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #3c6eb4;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        .milestone {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+        .milestone::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -17px;
+            background-color: #fff;
+            border: 4px solid #3c6eb4;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .left {
+            left: 0;
+        }
+        .right {
+            left: 50%;
+        }
+        .left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid #3c6eb4;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent #3c6eb4;
+        }
+        .right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid #3c6eb4;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent #3c6eb4 transparent transparent;
+        }
+        .right::after {
+            left: -16px;
+        }
+        .content {
+            padding: 20px 30px;
+            background-color: #f0f4f8;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .back-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 8px 16px;
+            background-color: #3c6eb4;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        .back-button:hover {
+            background-color: #1c3a6e;
+            transform: translateY(-2px);
+        }
+        .comment-section {
+            margin-top: 40px;
+            border-top: 1px solid #ccc;
+            padding-top: 20px;
+        }
+        .comment-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .comment-form button {
+            padding: 8px 16px;
+            background-color: #3c6eb4;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .comments-list {
+            margin-top: 20px;
+        }
+        .comment {
+            background-color: #f0f4f8;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-button">Back to Canvas</a>
+        <h1><i class="fas fa-flag"></i> Project Milestones</h1>
+        <div class="timeline">
+            <div class="milestone left">
+                <div class="content">
+                    <h2>Project Kickoff</h2>
+                    <p>January 2024</p>
+                    <p>Initiate the project and align stakeholders on objectives and timeline.</p>
+                </div>
+            </div>
+            <div class="milestone right">
+                <div class="content">
+                    <h2>Requirements Gathering Complete</h2>
+                    <p>March 2024</p>
+                    <p>Finalize all stakeholder requirements and process analysis.</p>
+                </div>
+            </div>
+            <div class="milestone left">
+                <div class="content">
+                    <h2>System Design Approved</h2>
+                    <p>May 2024</p>
+                    <p>Complete and approve the BPM system design and architecture.</p>
+                </div>
+            </div>
+            <div class="milestone right">
+                <div class="content">
+                    <h2>Development Complete</h2>
+                    <p>August 2024</p>
+                    <p>Finish development of all system components and integrations.</p>
+                </div>
+            </div>
+            <div class="milestone left">
+                <div class="content">
+                    <h2>User Acceptance Testing</h2>
+                    <p>October 2024</p>
+                    <p>Conduct and complete user acceptance testing with stakeholders.</p>
+                </div>
+            </div>
+            <div class="milestone right">
+                <div class="content">
+                    <h2>System Go-Live</h2>
+                    <p>December 2024</p>
+                    <p>Launch the new BPM system and begin the optimization phase.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="comment-section">
+            <h2>Comments</h2>
+            <form class="comment-form" id="commentForm">
+                <textarea id="commentText" rows="4" placeholder="Enter your comment here"></textarea>
+                <button type="submit">Submit Comment</button>
+            </form>
+            <div class="comments-list" id="commentsList"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const commentForm = document.getElementById('commentForm');
+            const commentsList = document.getElementById('commentsList');
+
+            // Load existing comments
+            loadComments();
+
+            commentForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const commentText = document.getElementById('commentText').value;
+                if (commentText.trim() !== '') {
+                    addComment(commentText);
+                    document.getElementById('commentText').value = '';
+                }
+            });
+
+            function addComment(text) {
+                const comment = {
+                    text: text,
+                    timestamp: new Date().toISOString()
+                };
+                let comments = JSON.parse(localStorage.getItem('milestoneComments') || '[]');
+                comments.push(comment);
+                localStorage.setItem('milestoneComments', JSON.stringify(comments));
+                displayComment(comment);
+                updateCommentIcon();
+            }
+
+            function loadComments() {
+                const comments = JSON.parse(localStorage.getItem('milestoneComments') || '[]');
+                comments.forEach(displayComment);
+                updateCommentIcon();
+            }
+
+            function displayComment(comment) {
+                const commentElement = document.createElement('div');
+                commentElement.classList.add('comment');
+                commentElement.textContent = `${new Date(comment.timestamp).toLocaleString()}: ${comment.text}`;
+                commentsList.prepend(commentElement);
+            }
+
+            function updateCommentIcon() {
+                const comments = JSON.parse(localStorage.getItem('milestoneComments') || '[]');
+                localStorage.setItem('milestoneHasComments', comments.length > 0 ? 'true' : 'false');
+            }
+        });
+    </script>
+</body>
+</html>
